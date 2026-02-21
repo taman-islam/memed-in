@@ -53,6 +53,8 @@ function renderSummary(postEl, summaryText, button) {
 
   const label = document.createElement("div");
   label.className = "meme-summary-label";
+  label.style.fontWeight = "600";
+  label.style.color = "inherit";
   label.textContent = "AI-generated summary";
 
   const text = document.createElement("p");

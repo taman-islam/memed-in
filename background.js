@@ -25,12 +25,14 @@ async function handleSummarize(postText) {
       return { error: "No API key" };
     }
 
-    const voices = ["Ricky Gervais", "Chris Rock", "Bill Burr", "Jimmy Carr"];
+    const voices = ["Ricky Gervais", "Chris Rock", "Jimmy Carr"];
 
     const style = voices[Math.floor(Math.random() * voices.length)];
 
-    const prompt = `Summarize the following LinkedIn post into a short, meme-worthy description
-that captures the underlying social intent or subtext in ${style}'s style. If the post is not meme worthy, return "Good post. No summary needed.".
+    const prompt = `
+    If the post is not meme worthy, return "Good post. No summary needed.".
+    Otherwise, create a spicy, meme-worthy description of the following LinkedIn post
+    that captures the underlying social intent or subtext in ${style}'s style.
 
 Rules:
 - 1–2 sentences max.

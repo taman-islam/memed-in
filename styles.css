@@ -45,12 +45,31 @@ html.theme--dark .meme-summary-btn:disabled {
 /* Summary Box */
 .meme-summary-box {
   margin: 0 0 16px 0;
-  padding: 0 0 16px 0;
+  padding: 16px;
   font-family: inherit;
-  border-bottom: 2px solid rgba(0, 0, 0, 0.08); /* Divider */
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.08),
+    0 0 0 1px rgba(10, 102, 194, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+/* Add a subtle blue glow on the left edge */
+.meme-summary-box::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(180deg, #70b5f9 0%, #0a66c2 100%);
 }
 html.theme--dark .meme-summary-box {
-  border-bottom: 2px solid rgba(255, 255, 255, 0.08);
+  background-color: #1b1f23;
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(112, 181, 249, 0.2);
 }
 
 /* Label */

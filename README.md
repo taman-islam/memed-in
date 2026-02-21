@@ -1,5 +1,10 @@
 # Meme Summary for LinkedIn
 
+![Meme Summary feature demonstration showing a witty AI translation below a LinkedIn post]
+
+1. ![demo 1](memed-in-demo-1.png)
+2. ![demo 2](memed-in-demo.png)
+
 A Chrome extension that turns the LinkedIn feed into a meme by summarizing each post into its honest subtext — with one quiet button.
 
 ## Vision
@@ -8,18 +13,13 @@ Turn the LinkedIn feed into a meme by summarizing each post into its honest subt
 
 ## Features
 
-- **Summarize Button:** Injects a subtle, native-looking "Summarize" button to the top right of LinkedIn posts.
-- **AI-Powered:** Uses Google Gemini (gemini-3-pro-preview) to analyze the post and generate a dry, observational, meme-style summary that captures the underlying social intent or subtext of the post.
-- **Smart Filtering:** Automatically ignores Sponsored posts, Ads, Jobs, and Polls.
-- **Clean UI:** Replaces the text of the post with the generated summary, making it feel like unintentional satire instead of an overlaid app.
-- **Efficient:** Caches summaries for the active session to prevent redundant API calls on the same post.
+- Summarize LinkedIn posts into their honest subtext with one click
 
 ## Quick Start
 
 1. **Get an API Key:** Get a free Gemini API key from [Google AI Studio](https://aistudio.google.com/).
 2. **Install:** Go to `chrome://extensions/`, enable **Developer mode**, click **Load unpacked**, and select this folder.
 3. **Configure:** The options page will open automatically. Paste your API key and click **Save**.
-4. **Use:** Refresh your [LinkedIn Feed](https://www.linkedin.com/feed/) and click "Summarize" on any post.
 
 ## How to Use
 
