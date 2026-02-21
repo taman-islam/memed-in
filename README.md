@@ -1,6 +1,6 @@
 # Meme Summary for LinkedIn
 
-![Meme Summary feature demonstration showing a witty AI translation below a LinkedIn post]
+Live Demos
 
 1. ![demo 1](memed-in-demo-1.png)
 2. ![demo 2](memed-in-demo.png)
