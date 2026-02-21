@@ -10,6 +10,12 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   }
 });
 
+chrome.runtime.onInstalled.addListener((details) => {
+  if (details.reason === "install") {
+    chrome.runtime.openOptionsPage();
+  }
+});
+
 async function handleSummarize(postText) {
   try {
     const data = await chrome.storage.sync.get(["apiKey"]);
