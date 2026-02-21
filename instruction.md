@@ -16,7 +16,7 @@ Turn the LinkedIn feed into a meme by summarizing each post into its honest subt
 
 1. Add one button to the right side of each post card
 2. Button label (exact): "Summarize". No emojis. No sarcasm in the label. It should look boring.
-3. On click, a small box appears inside the post card, below the content
+3. On click, a small box appears inside the post card, before the original content
 4. The box contains:
    A fun, dry, meme-style summary
    A subtle label on top: AI-generated summary (HONEST).

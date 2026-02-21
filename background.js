@@ -30,7 +30,8 @@ async function handleSummarize(postText) {
     const style = voices[Math.floor(Math.random() * voices.length)];
 
     const prompt = `
-    If the post is not meme worthy, return "Good post. No summary needed.".
+    Today's date is ${new Date().toLocaleDateString()}.
+    If the post is about serious matters, and are not meme worthy, return "No summary needed.".
     Otherwise, create a spicy, meme-worthy description of the following LinkedIn post
     that captures the underlying social intent or subtext in ${style}'s style.
 

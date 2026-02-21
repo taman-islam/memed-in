@@ -41,11 +41,11 @@ function isInvalidPost(postEl, text) {
 
 // Render Summary Box
 function renderSummary(postEl, summaryText, button) {
-  let target = postEl.querySelector(".update-components-text");
+  let target = postEl.querySelector(
+    ".feed-shared-update-v2__description-wrapper",
+  );
   if (!target) {
-    target = postEl.querySelector(
-      ".feed-shared-update-v2__description-wrapper",
-    );
+    target = postEl.querySelector(".update-components-text");
   }
 
   const box = document.createElement("div");
@@ -65,10 +65,16 @@ function renderSummary(postEl, summaryText, button) {
   box.appendChild(text);
 
   if (target && target.parentNode) {
-    // Insert the summary box right before the original text container
+    // Insert the summary box right before the description wrapper or text container
     target.parentNode.insertBefore(box, target);
   } else {
-    postEl.appendChild(box);
+    // Absolute fallback: insert right after the header if found
+    const actorHeader = postEl.querySelector(".feed-shared-actor");
+    if (actorHeader && actorHeader.nextSibling) {
+      actorHeader.parentNode.insertBefore(box, actorHeader.nextSibling);
+    } else {
+      postEl.insertBefore(box, postEl.firstChild);
+    }
   }
 }
 
