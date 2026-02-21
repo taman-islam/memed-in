@@ -40,6 +40,7 @@ Rules:
 - Use ${style}'s tone and style.
 - No emojis, slang, or insults.
 - Do not add new facts.
+- Don't assume the gender, age, or location of the post author.
 
 Post:
 ${postText}`;
