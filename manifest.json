@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "Meme Summary for LinkedIn",
+  "version": "1.0",
+  "description": "Turn the LinkedIn feed into a meme by summarizing each post into its honest subtext.",
+  "permissions": ["storage"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.linkedin.com/*"],
+      "css": ["styles.css"],
+      "js": ["content.js"]
+    }
+  ],
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+  "action": {
+    "default_popup": "options.html"
+  }
+}
