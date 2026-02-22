@@ -1,12 +1,15 @@
-Extension Spec — Meme Summary for LinkedIn
+Extension Spec — Meme Profile summary for facebook
 
 # Vision
 
-Turn the LinkedIn feed into a meme by summarizing each post into its honest subtext — with one quiet button.
+Turn the visited facebook profile into a meme by,
+
+1. showing a summary box on top of the profile
+2. summarizing each post into its honest subtext — with one quiet button.
 
 # Platform
 
-1. LinkedIn
+1. Facebook
 2. Desktop web
 3. Home feed only
 
@@ -14,142 +17,69 @@ Turn the LinkedIn feed into a meme by summarizing each post into its honest subt
 
 ## UI
 
-1. Add one button to the right side of each post card
-2. Button label (exact): "Summarize". No emojis. No sarcasm in the label. It should look boring.
-3. On click, a small box appears inside the post card, before the original content
-4. The box contains:
-   A fun, dry, meme-style summary
-   A subtle label on top: AI-generated summary (HONEST).
-5. No animations. No popups. No overlays.
+1. Show a summary box on top of the profile
+2. The box contains:
+   A spicy, meme-style summary (Like: I am looking for sex; I need attention; I love fake news, etc)
+   A subtle label on top: AI-generated summary.
+3. No animations. No popups. No overlays.
 
 ## What the “summary” actually is:
 
-1. Not a literal summary.
-2. It’s a social-intent summary.
+1. It’s a social-intent summary. Spicy, meme-style.
 
 Think:
 
-1. “If this post were honest and short, what is it really saying?”
+1. “If this person were honest and short, what would they be really saying in their profile summary?”
 
 Tone rules (non-negotiable)
 
-1. Dry
-2. Flat
-3. Calm
-4. Slightly bored
-5. Observational
+1. Flat
+2. Observational
+3. Spicy
 
 Never:
 
-1. Insult the author
-2. Use emojis
-3. Use slang
-4. Sound angry or political
-5. Add facts
+1. Use slang
+2. Sound angry or political
+3. Add facts
 
 Always:
 
-1. Reduce to intent
-2. Remove hype
-3. Make the subtext explicit
+1. Remove hype
+2. Make the subtext explicit
 
 Examples (gold standard)
 
-1.  Original: Most people won’t tell you this, but consistency is everything.
+1.  Original: The world is a better place because of you.
 
-Summary: A common piece of advice framed as rare insight to attract attention.
+Summary: I am looking to get laid.
 
 2.  Original: Today I had to make one of the hardest decisions of my career.
 
-Summary: A vent about a difficult decision.
+Summary: I need attention.
 
 3.  Original: After mentoring dozens of founders, one thing is clear…
 
-Summary: A personal experience used to establish authority before giving general advice.
+Summary: Give me your attention
 
 4.  Original: I didn’t want to post this, but after so many messages…
 
-Summary: A planned update framed as reluctant to increase credibility.
+Summary: Look! I am happy!!
 
 If it reads like a meme caption in your head — it’s right.
 
 Prompt spec (final)
-Summarize the following LinkedIn post into a short, dry, humorous description
-that captures the underlying social intent or subtext.
+Create a spicy, meme-style summary of the following Facebook profile.
 
 Rules:
 
 - 1–2 sentences max.
-- Calm, neutral tone.
 - No emojis, slang, or insults.
 - Do not add new facts.
-- Humor should come from clarity, not mockery.
 
-Post:
-{{POST_TEXT}}
+Profile:
+{{PROFILE_TEXT}}
 
 This prompt is intentionally boring. That’s why it works.
 
-Post eligibility
-
-Include:
-
-Text posts
-
-Story-style posts
-
-Announcements
-
-Leadership / growth / layoff posts
-
-Exclude:
-
-Ads
-
-Job listings
-
-Polls
-
-Posts under ~150–200 characters
-
-Technical behavior (brief)
-
-Content script:
-
-Detect post cards
-
-Inject Summarize button on the right
-
-On click:
-
-Extract post text
-
-Call background worker
-
-Render summary inline
-
-Cache by post hash
-
-One summary per post per session
-
-If anything fails → do nothing. Silence > jank.
-
-Why this works so well
-
-“Summarize” sounds harmless
-
-The humor is a surprise
-
-It doesn’t attack — it reveals
-
-It trains users to see patterns
-
-The feed becomes unintentionally funny
-
-People won’t say:
-
-“This is an AI tool”
-
-They’ll say:
-
-“LinkedIn is hilarious now.”
+Profile eligibility
