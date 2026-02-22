@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Meme Summary Options</title>
   <style>
@@ -8,6 +9,7 @@
       padding: 20px;
       width: 500px;
     }
+
     textarea {
       width: 100%;
       box-sizing: border-box;
@@ -17,14 +19,17 @@
       padding: 8px;
       resize: vertical;
     }
+
     .form-group {
       margin-bottom: 15px;
     }
+
     label {
       display: block;
       margin-bottom: 5px;
       font-weight: 600;
     }
+
     input[type="password"] {
       width: 100%;
       padding: 8px;
@@ -32,6 +37,7 @@
       border: 1px solid #ccc;
       border-radius: 4px;
     }
+
     button {
       padding: 8px 16px;
       background-color: #0a66c2;
@@ -41,16 +47,27 @@
       cursor: pointer;
       font-weight: 600;
     }
+
     button:hover {
       background-color: #004182;
     }
+
     #status {
-      margin-top: 10px;
-      font-size: 14px;
-      color: #0a66c2;
+      margin-top: 15px;
+      font-size: 15px;
+      font-weight: 600;
+      color: #0f5132;
+      background-color: #d1e7dd;
+      border: 1px solid #badbcc;
+      padding: 10px;
+      border-radius: 6px;
+      text-align: center;
+      display: none;
+      transition: opacity 0.3s ease;
     }
   </style>
 </head>
+
 <body>
   <h2>Meme Summary settings</h2>
   <div class="form-group">
@@ -62,11 +79,12 @@
     <textarea id="linkedinPrompt" rows="12"></textarea>
   </div>
   <div class="form-group">
-    <label for="facebookPrompt">Facebook Prompt (use {{TEXT}})</label>
+    <label for="facebookPrompt">Facebook Prompt (use {{TEXT}} and {{DATE}})</label>
     <textarea id="facebookPrompt" rows="8"></textarea>
   </div>
   <button id="save">Save</button>
   <div id="status"></div>
   <script src="options.js"></script>
 </body>
+
 </html>

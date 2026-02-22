@@ -3,8 +3,9 @@
 const GEMINI_API_URL =
   "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent";
 
-const DEFAULT_FACEBOOK_PROMPT = `Create a spicy, meme-style summary of the following Facebook profile.
-Today's date is {{DATE}}.
+const DEFAULT_DATE = new Date().toLocaleDateString();
+
+const DEFAULT_FACEBOOK_PROMPT = `Create a spicy, meme-style summary of the following Facebook profile. Remember today's date is ${DEFAULT_DATE}.
 
 Rules:
 - 1–2 sentences max.
@@ -89,7 +90,9 @@ async function handleFacebookSummarize(profileText) {
   try {
     const data = await chrome.storage.sync.get(["facebookPrompt"]);
     const template = data.facebookPrompt || DEFAULT_FACEBOOK_PROMPT;
-    const prompt = template.replace("{{TEXT}}", profileText);
+    const prompt = template
+      .replace("{{TEXT}}", profileText)
+      .replace("{{DATE}}", new Date().toLocaleDateString());
 
     return await callGemini(prompt);
   } catch (error) {

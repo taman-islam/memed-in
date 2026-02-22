@@ -13,7 +13,7 @@ Rules:
 Post:
 {{TEXT}}`;
 
-const DEFAULT_FACEBOOK_PROMPT = `Create a spicy, meme-style summary of the following Facebook profile.
+const DEFAULT_FACEBOOK_PROMPT = `Create a spicy, meme-style summary of the following Facebook profile. Remember today's date is {{DATE}}.
 
 Rules:
 - 1–2 sentences max.
@@ -51,10 +51,12 @@ document.getElementById("save").addEventListener("click", () => {
     },
     () => {
       const status = document.getElementById("status");
-      status.textContent = "Options saved.";
+      status.textContent = "✅ Options saved successfully!";
+      status.style.display = "block";
       setTimeout(() => {
         status.textContent = "";
-      }, 2000);
+        status.style.display = "none";
+      }, 2500);
     },
   );
 });
