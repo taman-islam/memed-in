@@ -51,7 +51,7 @@ document.getElementById("save").addEventListener("click", () => {
     },
     () => {
       const status = document.getElementById("status");
-      status.textContent = "✅ Options saved successfully!";
+      status.textContent = "Options saved successfully!";
       status.style.display = "block";
       setTimeout(() => {
         status.textContent = "";
