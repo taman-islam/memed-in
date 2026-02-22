@@ -6,7 +6,16 @@
     body {
       font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Fira Sans", Ubuntu, Oxygen, "Oxygen Sans", Cantarell, "Droid Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Lucida Grande", Helvetica, Arial, sans-serif;
       padding: 20px;
-      width: 300px;
+      width: 500px;
+    }
+    textarea {
+      width: 100%;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-family: inherit;
+      padding: 8px;
+      resize: vertical;
     }
     .form-group {
       margin-bottom: 15px;
@@ -47,6 +56,14 @@
   <div class="form-group">
     <label for="apiKey">Gemini API Key</label>
     <input type="password" id="apiKey" placeholder="Enter your key">
+  </div>
+  <div class="form-group">
+    <label for="linkedinPrompt">LinkedIn Prompt (use {{TEXT}} and {{DATE}})</label>
+    <textarea id="linkedinPrompt" rows="12"></textarea>
+  </div>
+  <div class="form-group">
+    <label for="facebookPrompt">Facebook Prompt (use {{TEXT}})</label>
+    <textarea id="facebookPrompt" rows="8"></textarea>
   </div>
   <button id="save">Save</button>
   <div id="status"></div>

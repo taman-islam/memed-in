@@ -3,6 +3,32 @@
 const GEMINI_API_URL =
   "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent";
 
+const DEFAULT_FACEBOOK_PROMPT = `Create a spicy, meme-style summary of the following Facebook profile.
+Today's date is {{DATE}}.
+
+Rules:
+- 1–2 sentences max.
+- No emojis, slang, or insults.
+- Do not add new facts.
+
+Profile:
+{{TEXT}}`;
+
+const DEFAULT_LINKEDIN_PROMPT = `Today's date is {{DATE}}.
+If the post is about serious matters, and are not meme worthy, return "No summary needed.".
+Otherwise, create a spicy, meme-worthy description of the following LinkedIn post
+that captures the underlying social intent or subtext in a dry, slightly bored style.
+
+Rules:
+- 1–2 sentences max.
+- Calm, neutral tone.
+- No emojis, slang, or insults.
+- Do not add new facts.
+- Don't assume the gender, age, or location of the post author.
+
+Post:
+{{TEXT}}`;
+
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   if (request.action === "summarize") {
     if (request.source === "facebook") {
@@ -61,15 +87,9 @@ async function callGemini(prompt) {
 
 async function handleFacebookSummarize(profileText) {
   try {
-    const prompt = `Create a spicy, meme-style summary of the following Facebook profile.
-
-Rules:
-- 1–2 sentences max.
-- No emojis, slang, or insults.
-- Do not add new facts.
-
-Profile:
-${profileText}`;
+    const data = await chrome.storage.sync.get(["facebookPrompt"]);
+    const template = data.facebookPrompt || DEFAULT_FACEBOOK_PROMPT;
+    const prompt = template.replace("{{TEXT}}", profileText);
 
     return await callGemini(prompt);
   } catch (error) {
@@ -80,24 +100,11 @@ ${profileText}`;
 
 async function handleLinkedinSummarize(postText) {
   try {
-    const voices = ["Ricky Gervais", "Chris Rock", "Jimmy Carr"];
-    const style = voices[Math.floor(Math.random() * voices.length)];
-
-    const prompt = `
-    Today's date is ${new Date().toLocaleDateString()}.
-    If the post is about serious matters, and are not meme worthy, return "No summary needed.".
-    Otherwise, create a spicy, meme-worthy description of the following LinkedIn post
-    that captures the underlying social intent or subtext in ${style}'s style.
-
-Rules:
-- 1–2 sentences max.
-- Use ${style}'s tone and style.
-- No emojis, slang, or insults.
-- Do not add new facts.
-- Don't assume the gender, age, or location of the post author.
-
-Post:
-${postText}`;
+    const data = await chrome.storage.sync.get(["linkedinPrompt"]);
+    const template = data.linkedinPrompt || DEFAULT_LINKEDIN_PROMPT;
+    const prompt = template
+      .replace("{{TEXT}}", postText)
+      .replace("{{DATE}}", new Date().toLocaleDateString());
 
     return await callGemini(prompt);
   } catch (error) {
